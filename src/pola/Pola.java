@@ -18,7 +18,7 @@ public class Pola {
     public static void main(String[] args) {
         try {
             Scanner sc = new Scanner(System.in);
-            File file = new File("D:\\DataTes.xlsx");
+            File file = new File("D:\\Data.xlsx");
             FileInputStream fis = new FileInputStream(file);
             XSSFWorkbook wb = new XSSFWorkbook(fis);
             XSSFSheet sh = wb.getSheetAt(0);
@@ -78,9 +78,9 @@ public class Pola {
             System.out.print("|  ");
             System.out.printf("%-14s", "Motif Daun");
             System.out.print("|  ");
-            System.out.printf("%-14s", "Kode Asli");
+            System.out.printf("%-14s", "Nama Daun");
             System.out.print("| ");
-            System.out.printf("%-14s", "Kode Ditebak");
+            System.out.printf("%-14s", "Nama Daun Tebakan");
             System.out.println("");
 
             for (int k = 0; k < 100; k++) {
@@ -137,7 +137,7 @@ public class Pola {
                 } else {
                     tebakDaun = 0;
                 }
-
+                
                 System.out.printf("%-4s", k + 1);
                 System.out.print("|  ");
                 System.out.printf("%-8s", panjang);
@@ -156,13 +156,47 @@ public class Pola {
                 System.out.print("|  ");
                 System.out.printf("%-14s", motifDaun);
                 System.out.print("|  ");
-                System.out.printf("%-14s", kode);
+                System.out.printf("%-14s", toString(kode));
                 System.out.print("| ");
-                System.out.printf("%-14s", tebakDaun);
-                System.out.println("");
+                String cetak = "";
+                System.out.printf("%-14s", toString(tebakDaun));
+                System.out.println(" ");
             }
+//            System.out.println("\n"
+//                    + "Tebakan Benar   : 15\n"
+//                    + "Tebakan Salah   : 15\n"
+//                    + "Tingkat Akurasi : 50%\n");
         } catch (Exception e) {
-            System.out.println("Error" + e.getMessage());
+            System.out.println("\nError" + e.getMessage());
         }
+    }
+
+    public static String toString(double in) {
+        String ctk = "";
+        if (in == 1) {
+            ctk = "Pucuk Merah";
+        } else if (in == 2) {
+            ctk = "Palem";
+        } else if (in == 3) {
+            ctk = "Sunflower";
+        } else if (in == 4) {
+            ctk = "Waru";
+        } else if (in == 5) {
+            ctk = "Sonokeling";
+        } else if (in == 6) {
+            ctk = "Kamboja";
+        } else if (in == 7) {
+            ctk = "Melinjo";
+        } else if (in == 8) {
+            ctk = "Mangga";
+        } else if (in == 9) {
+            ctk = "Jambu";
+        } else if (in == 10) {
+            ctk = "Kelengkeng";
+        }else{
+            ctk = "Tidak Teridentifikasi";
+        }
+
+        return ctk;
     }
 }
