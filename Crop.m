@@ -1,7 +1,7 @@
 pkg load image;
 clear;
 
-asli = imread("apik.jpg");
+asli = imread("apel.jpg");
 biner = im2bw(asli);
 
 [baris, kolom] = size(biner);
@@ -22,9 +22,6 @@ for i = 1 : baris
   end
 end
 
-
-[baris, kolom] = size(biner);
-
 for i = 1 : kolom
   for j = 1 : baris
     if biner(j,i) == 0
@@ -41,5 +38,9 @@ for i = 1 : kolom
   end
 end
 
-crop = asli(top:bottom, left:right, :);
-imshow(crop);
+crop = biner(top:bottom, left:right, :);
+
+figure(1);
+subplot(1,3,1); imshow(asli); title("Asli");
+subplot(1,3,2); imshow(biner); title("Biner");
+subplot(1,3,3); imshow(crop); title("Crop");
