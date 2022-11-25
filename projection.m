@@ -31,18 +31,14 @@ y= 1;
 
 for x = 1 : f
   if atasBawah(x) > 1
-    simpan(y) = atasBawah(x);
+    simpan(y) = x;
     y++;
   end
 end
-top = simpan(1)
-
-for x = 1 : f
-  if atasBawah(x) == top
-   indexTop = x 
-  end
-end
+indexTop = simpan(1)
+top = atasBawah(indexTop)
 y=1;
+
 for n = indexTop : f
   if atasBawah(n) == 0
     save(y) = n; 
@@ -52,3 +48,23 @@ end
 indexBottom = save(1)
 bottom = atasBawah(indexBottom)
 
+
+y=1;
+for x = indexBottom : f
+  if atasBawah(x) > 1
+    simpan(y) = x;
+    y++;
+  end
+end
+indexToplain = simpan(1)
+toplain = atasBawah(indexToplain)
+y=1;
+
+for n = indexToplain : f
+  if atasBawah(n) == 0
+    save(y) = n; 
+    y++;
+  end
+end
+indexBottomlain = save(1)
+bottomlain = atasBawah(indexBottomlain)
